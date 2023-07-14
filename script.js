@@ -14,9 +14,14 @@ const messageArray = {
     'fortune': ['Financial Abundance', 'What You Have Been Seeking', 'The Person of your Dreams', 'a Tasty Pie']
 };
 
-console.log(messageArray['activity'].length);
+//console.log(messageArray['activity'].length);
 
 // Generate random number based on the length of each key in the object.
 // messageArray['activity'].length
 // Function for random number assignment
 // Build string
+
+function randomizer(num) {
+    return Math.floor(Math.random() * num);
+}
+
