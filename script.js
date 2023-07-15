@@ -25,3 +25,15 @@ function randomizer(num) {
     return Math.floor(Math.random() * num);
 }
 
+function randomMessage(messages) {
+    const weatherIndex = randomizer(messageArray['weather'].length);
+    const weatherMessage = messages['weather'][weatherIndex];
+    
+    const activityIndex = randomizer(messageArray['activity'].length);
+    const activityMessage = messages['activity'][activityIndex];
+    
+    const fortuneIndex = randomizer(messageArray['fortune'].length);
+    const fortuneMessage = messages['fortune'][fortuneIndex];
+}
+
+randomMessage(messageArray);
