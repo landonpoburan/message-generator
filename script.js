@@ -1,30 +1,18 @@
 // Codecademy JavaScript Random Message Generator
 
-// If today is WEATHER, if you do XYZ, you will FORTUNE
-// ... If Today Is ...
-// Weather Array: Gloomy, Bright & Sunny, Cold or Rainy, Hot & Sweaty
-// ... And You ...
-// Activity Arrary: Netflix & Chill, Walk Along The Beach, Get Lost In A Book, Let Your Freak Flag Fly, Get Lost In The Forest
-// ... Financial Abundance, Exactly What You've Been Seeking, The Person Of Your Dreams, A Tasty Pie
-// ... Might Be In Your Future.
-
+// Message Object
 const messageArray = {
     'weather': ['Gloomy', 'Bright & Sunny', 'Cold & Rainy', 'Hot & Sweaty'],
     'activity': ['Netflix & Chill', 'Walk Along the Beach', 'Get Lost in a Book', 'Let Your Freak Flag Fly', 'Get Lost in the Forest'],
     'fortune': ['Financial Abundance', 'What You Have Been Seeking', 'The Person of your Dreams', 'a Tasty Pie']
 };
 
-//console.log(messageArray['activity'].length);
-
-// Generate random number based on the length of each key in the object.
-// messageArray['activity'].length
-// Function for random number assignment
-// Build string
-
+// Function to generate random index for each message
 function randomizer(num) {
     return Math.floor(Math.random() * num);
 }
 
+// Assemble the random message
 function randomMessage(messages) {
     const weatherIndex = randomizer(messageArray['weather'].length);
     const weatherMessage = messages['weather'][weatherIndex];
@@ -34,6 +22,9 @@ function randomMessage(messages) {
     
     const fortuneIndex = randomizer(messageArray['fortune'].length);
     const fortuneMessage = messages['fortune'][fortuneIndex];
+
+    return 'If Today Is ' + weatherMessage + ' And You ' + activityMessage + '... ' + fortuneMessage + ' May Be In Your Future ;)';
 }
 
-randomMessage(messageArray);
+// Call function and return random message
+console.log(randomMessage(messageArray));
