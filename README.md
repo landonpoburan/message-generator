@@ -1,4 +1,4 @@
-# Project: JavaScript Random Message Generator
+# JavaScript Random Message Generator
 
 **Description:** Generates a randomized message everytime the script runs.
 
