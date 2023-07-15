@@ -12,19 +12,35 @@ function randomizer(num) {
     return Math.floor(Math.random() * num);
 }
 
-// Assemble the random message
-function randomMessage(messages) {
-    const weatherIndex = randomizer(messageArray['weather'].length);
-    const weatherMessage = messages['weather'][weatherIndex];
-    
-    const activityIndex = randomizer(messageArray['activity'].length);
-    const activityMessage = messages['activity'][activityIndex];
-    
-    const fortuneIndex = randomizer(messageArray['fortune'].length);
-    const fortuneMessage = messages['fortune'][fortuneIndex];
-
-    return 'If Today Is ' + weatherMessage + ' And You ' + activityMessage + '... ' + fortuneMessage + ' May Be In Your Future ;)';
+// Function to print message to the screen
+function fancyDisplay(str) {
+    console.log(str);
 }
 
-// Call function and return random message
-console.log(randomMessage(messageArray));
+// Assemble the random message
+function randomMessage(messages) {
+    let finalMessage = '';
+
+    for (let message in messages) {
+        const messageId = randomizer(messages[message].length);
+
+        switch (message) {
+            case 'weather':
+                finalMessage += 'If Today Is ' + messages[message][messageId] + ' ';
+                break;
+            case 'activity':
+                finalMessage += 'And You ' + messages[message][messageId] + '... ';
+                break;
+            case 'fortune':
+                finalMessage += messages[message][messageId] + ' May Be In Your Future ;)';
+                break;
+            default:
+                finalMessage = 'Something went terribly wrong!';
+                break;
+        }
+    }
+
+    return fancyDisplay(finalMessage);
+}
+
+randomMessage(messageArray);
